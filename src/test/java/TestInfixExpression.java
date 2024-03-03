@@ -23,7 +23,7 @@ public class TestInfixExpression {
         testPostFixExpression("(( A + (B * C)) / (D - E))", "ABC*+DE-/");
         testPostFixExpression("(A + B) * (C + E)", "AB+CE+*");
         testPostFixExpression("A * (B * (((C + A) + B) * C))", "ABCA+B+C***");
-        testPostFixExpression("(( H * ((((A + ((B + C) * D)) * F) * G) * E)) + J)", "HABC+D*+F*G*E**J");
+        testPostFixExpression("(( H * ((((A + ((B + C) * D)) * F) * G) * E)) + J)", "HABC+D*+F*G*E**J+");
     }
 
     @Test
