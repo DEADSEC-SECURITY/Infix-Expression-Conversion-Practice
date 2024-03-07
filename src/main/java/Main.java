@@ -1,4 +1,5 @@
 import ExpressionGenerator.Expression;
+import Expressions.Infix;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -19,34 +20,34 @@ public class Main {
         String solution;
         int maxLength;
         int maxDepth;
-        InfixExpression infixExpression;
+        Infix infixExpression;
         while (scanner.hasNextLine()) {
             maxLength = difficultyLevel > 1 ? random.nextInt(1, difficultyLevel) * 2 : 2;
             maxDepth = difficultyLevel > 1 ? random.nextInt(1, difficultyLevel) : 1;
             expression = new Expression(maxLength, maxDepth).getExpression();
             System.out.println("Here is your expression: " + expression);
 
-            infixExpression = new InfixExpression(expression);
+            infixExpression = new Infix(expression);
             if (practiceSelection.equals("both") || practiceSelection.equals("postfix")) {
                 System.out.println("Please type your Postfix solution: ");
                 solution = scanner.next();
                 solution = solution.replaceAll("\\s", "");
-                if (solution.equals(infixExpression.convertToPostfix())) {
+                if (solution.equals(infixExpression.toPostfix())) {
                     System.out.println("Correct");
                 } else {
                     System.out.println("Incorrect");
-                    System.out.println("Correct solution: " + infixExpression.convertToPostfix());
+                    System.out.println("Correct solution: " + infixExpression.toPostfix());
                 }
             }
             if (practiceSelection.equals("both") || practiceSelection.equals("prefix")) {
                 System.out.println("Please type your Prefix solution: ");
                 solution = scanner.next();
                 solution = solution.replaceAll("\\s", "");
-                if (solution.equals(infixExpression.convertToPrefix())) {
+                if (solution.equals(infixExpression.toPrefix())) {
                     System.out.println("Correct");
                 } else {
                     System.out.println("Incorrect");
-                    System.out.println("Correct solution: " + infixExpression.convertToPrefix());
+                    System.out.println("Correct solution: " + infixExpression.toPrefix());
                 }
             }
         }
